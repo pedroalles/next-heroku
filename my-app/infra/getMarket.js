@@ -2,7 +2,8 @@ import puppeteer from 'puppeteer'
 // import chrome from 'chrome-aws-lambda'
 
 export async function getOptions() {
-  const isDev = !process.env.AWS_REGION
+  // const isDev = !process.env.AWS_REGION
+  const isDev = process.env.NODE_ENV == 'development'
   let options;
 
   const chromeExecPaths = {
