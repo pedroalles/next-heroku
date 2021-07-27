@@ -84,6 +84,8 @@ export async function getMarketInfos({ width, height } = { width: 800, height: 8
   const pageContent = await page.title()
 
   await _browser.close()
+  _page = null
+  _browser = null
 
   console.log(pageContent);
 
