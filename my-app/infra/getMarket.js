@@ -67,24 +67,25 @@ export async function getMarketInfos({ width, height } = { width: 800, height: 8
 
   await page.goto('https://steamcommunity.com/market/');
 
-  const pageContent = await page.evaluate(() => {
+  // const pageContent = await page.evaluate(() => {
 
-    const getInfos = (el) => ({
-      "Sticker Name": el.innerText,
-      "Sticker Url": el.getAttribute('href'),
-    });
+  //   const getInfos = (el) => ({
+  //     "Sticker Name": el.innerText,
+  //     "Sticker Url": el.getAttribute('href'),
+  //   });
 
-    return {
-      userName: document.querySelector('#account_pulldown').innerText,
-      walletBalance: document.querySelector('#header_wallet_balance').innerText,
-      listings: [...document.querySelectorAll('span[id*="mylisting_"] > a')].map(getInfos),
-      orders: [...document.querySelectorAll('span[id*="mbuyorder_"] > a')].map(getInfos),
-    }
-  })
+  //   return {
+  //     userName: document.querySelector('#account_pulldown').innerText,
+  //     walletBalance: document.querySelector('#header_wallet_balance').innerText,
+  //     listings: [...document.querySelectorAll('span[id*="mylisting_"] > a')].map(getInfos),
+  //     orders: [...document.querySelectorAll('span[id*="mbuyorder_"] > a')].map(getInfos),
+  //   }
+  // })
+  const pageContent = await page.title()
 
   await _browser.close()
 
   console.log(pageContent);
 
-  return pageContent
+  return { pageContent }
 }
