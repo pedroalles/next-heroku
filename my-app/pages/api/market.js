@@ -1,9 +1,20 @@
-import { getMarketInfos } from '../../infra/getMarket';
+import { getMarketInfos, loginSteam } from '../../infra/getMarket';
 
-export default async (req, res) => {
+const asyncFunc = async (req, res) => {
 
-  const market_title = await getMarketInfos({ width: 1024, height: 800 });
+  const userInfos = {
+    login: req.query.login || 'No Login',
+    pass: req.query.pass || 'No Pass',
+    sg: req.query.sg || 'No Steam Guard',
+  };
+
+  console.log(userInfos);
+
+  await loginSteam(userInfos);
+
+  const market_title = await getMarketInfos();
 
   return res.json(market_title)
-
 }
+
+export default asyncFunc;
