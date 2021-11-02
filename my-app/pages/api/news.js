@@ -1,10 +1,13 @@
-import { getNews } from '../../infra/getNews';
-import { getNewsCheerio } from '../../infra/getNewsCheerio';
+import { getGeNews } from '../../infra/getGeNews';
+import { getUolNews } from '../../infra/getUolNews';
+import { getEspnNews } from '../../infra/getEspnNews';
 
 export default async function handler(req, res) {
-    const response1 = await getNews();
-    const response2 = await getNewsCheerio();
+    const response1 = await getGeNews();
+    const response2 = await getUolNews();
+    const response3 = await getEspnNews();
     res.status(200).json([
+        ...response3,
         ...response2,
         ...response1,
     ])
