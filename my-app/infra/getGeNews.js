@@ -54,7 +54,7 @@ export async function getGeNews({ width, height } = { width: 800, height: 800 })
   await page.goto(url);
 
   const result = await page.evaluate(() => {
-    const site = 'Ge'
+    const site = 'ge'
     const posts = []
     document.querySelectorAll('div.feed-post-body-title.gui-color-primary.gui-color-hover > div > a')
       .forEach((post) => posts.push({
