@@ -15,14 +15,14 @@ export default function News({ data }) {
     }, [])
 
     return (
-        <div>
+        <div className={styles.container}>
             {news.map(el => (
-                <a key={el.url} href={el.url} target="_blank" rel="noreferrer">
-                    <div className={styles.card}>
-                        <h4>{el.site}</h4>
-                        <h3>{el.title}</h3>
-                    </div>
-                </a>
+                <div className={styles.card}>
+                    <a key={el.url} href={el.url} target="_blank" rel="noreferrer">
+                        <h6 className={styles.site}>{el.site}</h6>
+                        <h4 className={styles.title}>{el.title}</h4>
+                    </a>
+                </div>
             ))}
         </div>
     )

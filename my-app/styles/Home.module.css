@@ -1,25 +1,27 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  padding: 8px;
+  background-color: #161616;
 }
 
 .card {
-  margin: 5px;
-  background-color: #bbb;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  background-color: rgb(85, 173, 255);
+  border: 1px solid white;
 }
 
-.card > h3, .card > h4 {
+.site {
+  /* font-size: 0.5rem; */
+  padding: 0px;
+  background-color: white;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  color: #161616;
+  padding-left: 5px;
+}
+
+.title {
+  /* font-size: 1rem; */
+  color: #161616;
   padding: 2px 2px 2px 5px;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
 }
