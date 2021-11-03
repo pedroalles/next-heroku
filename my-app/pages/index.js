@@ -7,31 +7,32 @@ export default function Home({ data }) {
   const [isLoading, setIsLoading] = useState(false)
 
   const port = process.env.PORT || 3000;
+  console.log('port', port);
 
   useEffect(() => {
-    getNews()
-    // setNews(data)
+    // getNews()
+    setNews(data)
   }, [])
 
-  const getNews = async () => {
-    setIsLoading(true)
-    const url = `http://localhost:${port}/api/news2`
-    // const url = 'http://gremio-news.herokuapp.com/api/news2'
-    console.log('url', url);
-    const res = await fetch(url)
-    const data = await res.json()
-    console.log(data);
-    setNews(data)
-    setIsLoading(false)
-  }
+  // const getNews = async () => {
+  //   setIsLoading(true)
+  //   const url = `http://localhost:${port}/api/news2`
+  //   // const url = 'http://gremio-news.herokuapp.com/api/news2'
+  //   console.log('url', url);
+  //   const res = await fetch(url)
+  //   const data = await res.json()
+  //   console.log(data);
+  //   setNews(data)
+  //   setIsLoading(false)
+  // }
 
 
-  if (isLoading) {
-    return <p>Buscando as quentinhas do tricolor...</p>
-  }
-  if (!news) {
-    return <p>No news to show</p>
-  }
+  // if (isLoading) {
+  //   return <p>Buscando as quentinhas do tricolor...</p>
+  // }
+  // if (!news) {
+  //   return <p>No news to show</p>
+  // }
 
   return (
     <div>
@@ -47,15 +48,17 @@ export default function Home({ data }) {
   )
 }
 
-// Home.getInitialProps = async () => {
-//   console.log('fetching data...');
-//   const url = `http://localhost:${process.env.PORT || 3000}/api/news`
-//   // const url = 'https://gremio-news.herokuapp.com/api/news2'
-//   // const url = 'http://localhost:3000/api/news2'
-//   const res = await fetch(url)
-//   const data = await res.json()
-//   console.log(data.length);
-//   return {
-//     data,
-//   }
-// }
+Home.getInitialProps = async () => {
+  const port = process.env.PORT || 3000;
+  console.log('portsss', port);
+  console.log('fetching data...');
+  const url = `http://localhost:${port}/api/news2`
+  // const url = 'https://gremio-news.herokuapp.com/api/news2'
+  // const url = 'http://localhost:3000/api/news2'
+  const res = await fetch(url)
+  const data = await res.json()
+  console.log(data.length);
+  return {
+    data,
+  }
+}
