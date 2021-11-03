@@ -1,41 +1,28 @@
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 export default function Home({ data }) {
 
   const [news, setNews] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
 
-  const port = process.env.PORT || 3000;
-  console.log('port', port);
+  const audio_url = "https://protettordelinks.com/wp-content/audiosparazap/hino_do_gremio.mp3"
+
+  // const audio_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 
   useEffect(() => {
-    // getNews()
     setNews(data)
   }, [])
 
-  // const getNews = async () => {
-  //   setIsLoading(true)
-  //   const url = `http://localhost:${port}/api/news2`
-  //   // const url = 'http://gremio-news.herokuapp.com/api/news2'
-  //   console.log('url', url);
-  //   const res = await fetch(url)
-  //   const data = await res.json()
-  //   console.log(data);
-  //   setNews(data)
-  //   setIsLoading(false)
-  // }
-
-
-  // if (isLoading) {
-  //   return <p>Buscando as quentinhas do tricolor...</p>
-  // }
-  // if (!news) {
-  //   return <p>No news to show</p>
-  // }
-
   return (
     <div>
+      <div>
+        <ReactAudioPlayer
+          src={audio_url}
+          autoPlay
+          controls
+        />
+      </div>
       {news.map(el => (
         <a key={el.url} href={el.url} target="_blank" rel="noreferrer">
           <div className={styles.card}>
@@ -50,14 +37,9 @@ export default function Home({ data }) {
 
 Home.getInitialProps = async () => {
   const port = process.env.PORT || 3000;
-  console.log('portsss', port);
-  console.log('fetching data...');
   const url = `http://localhost:${port}/api/news2`
-  // const url = 'https://gremio-news.herokuapp.com/api/news2'
-  // const url = 'http://localhost:3000/api/news2'
   const res = await fetch(url)
   const data = await res.json()
-  console.log(data.length);
   return {
     data,
   }
