@@ -6,6 +6,8 @@ export default function Home({ data }) {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
 
+  const port = process.env.PORT || 3000;
+
   useEffect(() => {
     getNews()
     // setNews(data)
@@ -13,7 +15,7 @@ export default function Home({ data }) {
 
   const getNews = async () => {
     setIsLoading(true)
-    const url = `http://localhost:${process.env.PORT || 3000}/api/news2`
+    const url = `http://localhost:${port}/api/news2`
     // const url = 'http://gremio-news.herokuapp.com/api/news2'
     console.log('url', url);
     const res = await fetch(url)
