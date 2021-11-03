@@ -17,8 +17,8 @@ export default function News({ data }) {
     return (
         <div className={styles.container}>
             {news.map(el => (
-                <div className={styles.card}>
-                    <a key={el.url} href={el.url} target="_blank" rel="noreferrer">
+                <div key={el.url} className={styles.card}>
+                    <a href={el.url} target="_blank" rel="noreferrer">
                         <h6 className={styles.site}>{el.site}</h6>
                         <h4 className={styles.title}>{el.title}</h4>
                     </a>
