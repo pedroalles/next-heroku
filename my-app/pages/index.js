@@ -6,9 +6,9 @@ export default function Home({ data }) {
 
   const [news, setNews] = useState([]);
 
-  const audio_url = "https://protettordelinks.com/wp-content/audiosparazap/hino_do_gremio.mp3"
+  // const audio_url = "https://protettordelinks.com/wp-content/audiosparazap/hino_do_gremio.mp3"
 
-  // const audio_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+  const audio_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 
   useEffect(() => {
     setNews(data)

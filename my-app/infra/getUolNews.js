@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 
 export async function getUolNews() {
     // const url = 'https://www.google.com/search?q=gr%C3%AAmio&hl=pt-BR&biw=1067&bih=649&tbm=nws';
-    const site = 'uol'
+    const site = 'UOL'
     const url = 'https://www.uol.com.br/esporte/futebol/times/gremio/'
     const response = await axios.get(url);
     const html = await response.data;
