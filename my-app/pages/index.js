@@ -12,7 +12,7 @@ export default function Home() {
 
   const getNews = async () => {
     setIsLoading(true)
-    const res = await fetch(`http://localhost:${process.env.PORT || 3000}/api/news`)
+    const res = await fetch(`http://localhost:${process.env.PORT || 3000}/api/news2`)
     const data = await res.json()
     console.log(data);
     setNews(data)
