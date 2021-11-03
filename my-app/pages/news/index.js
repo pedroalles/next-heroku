@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
