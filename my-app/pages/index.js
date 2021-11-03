@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div>
       {news.map(el => (
-        <a href={el.url} target="_blank">
+        <a key={el.url} href={el.url} target="_blank">
           <div className={styles.card}>
             <h4>{el.site}</h4>
             <h3>{el.title}</h3>
