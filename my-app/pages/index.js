@@ -50,11 +50,3 @@ export default function Home({ port }) {
 //     data,
 //   }
 // }
-
-// Home.getInitialProps = async () => {
-//   const port = process.env.PORT || 3000;
-//   console.log('port on getInitialProps', port);
-//   return {
-//     port,
-//   }
-// }
