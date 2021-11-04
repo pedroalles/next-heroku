@@ -1,14 +1,10 @@
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 
-export default function Home({ port }) {
+export default function Home() {
 
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
-  // const audio_url = "https://protettordelinks.com/wp-content/audiosparazap/hino_do_gremio.mp3"
-
-  // const audio_url = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 
   useEffect(() => {
     fetchData()
@@ -24,7 +20,12 @@ export default function Home({ port }) {
     console.log(data);
   }
 
-  if (isLoading) return <p>Buscando as quentinhas do tricolor...</p>
+  if (isLoading) return (
+    <div className={styles.loading}>
+      <div className={styles.loadinglogo}></div>
+      <h3 className={styles.loadingmessage}>Aguarde</h3>
+    </div>
+  )
 
   return (
     <div className={styles.container}>
@@ -39,14 +40,3 @@ export default function Home({ port }) {
     </div>
   )
 }
-
-// Home.getInitialProps = async () => {
-//   const port = process.env.PORT || 3000;
-//   console.log('port on getInitialProps', port);
-//   const url = `http://localhost:${port}/api/news2`
-//   const res = await fetch(url)
-//   const data = await res.json()
-//   return {
-//     data,
-//   }
-// }

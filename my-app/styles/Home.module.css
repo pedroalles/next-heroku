@@ -11,7 +11,6 @@
 }
 
 .site {
-  /* font-size: 0.5rem; */
   padding: 0px;
   background-color: white;
   border-top-left-radius: 6px;
@@ -21,7 +20,42 @@
 }
 
 .title {
-  /* font-size: 1rem; */
   color: #161616;
   padding: 2px 2px 2px 5px;
+}
+
+.loading {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #161616;
+}
+
+.loadinglogo {
+  background-image: url('../public/favicon.ico');
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  animation: logo 2s infinite linear;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.loadingmessage {
+  color: white;
+  margin: 10px;
+}
+
+@keyframes logo {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
 }
