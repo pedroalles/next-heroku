@@ -13,10 +13,18 @@ export default function Home({ port }) {
     console.log('port on useEffect', port);
     // setNews(data)
     fetchData()
+    fetchData2()
   }, [])
 
   const fetchData = async () => {
-    const url = `http://localhost:${port}/api/news2`
+    const url = `http://127.0.0.1:${port}/api/news2`
+    const res = await fetch(url)
+    const data = await res.json()
+    console.log(data);
+  }
+
+  const fetchData2 = async () => {
+    const url = `https://pokeapi.co/api/v2/pokemon/ditto`
     const res = await fetch(url)
     const data = await res.json()
     console.log(data);
