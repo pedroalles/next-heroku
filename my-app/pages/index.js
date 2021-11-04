@@ -2,6 +2,9 @@ import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
+const port = process.env.PORT || 3000;
+console.log('port on index.js', port);
+
 export default function Home({ data }) {
 
   const [news, setNews] = useState([]);
@@ -30,6 +33,7 @@ export default function Home({ data }) {
 
 Home.getInitialProps = async () => {
   const port = process.env.PORT || 3000;
+  console.log('port on getInitialProps', port);
   const url = `http://localhost:${port}/api/news2`
   const res = await fetch(url)
   const data = await res.json()
