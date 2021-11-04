@@ -17,7 +17,7 @@ export default function Home({ port }) {
   }, [])
 
   const fetchData = async () => {
-    const url = `http://gremio-news.herokuapp.com/api/news2`
+    const url = `https://gremio-news.herokuapp.com/api/news2`
     const res = await fetch(url)
     const data = await res.json()
     console.log(data);
