@@ -40,6 +40,8 @@
   width: 50px;
   background-size: cover;
   background-repeat: no-repeat;
+  border-radius: 50%;
+  box-shadow: 0px 0px 8px white;
 
   animation: logo 2s infinite linear;
   transform-origin: center;
@@ -49,6 +51,7 @@
 .loadingmessage {
   color: white;
   margin: 10px;
+  text-shadow: 0px 0px 4px white;
 }
 
 @keyframes logo {
