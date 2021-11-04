@@ -16,7 +16,7 @@ export default function Home({ port }) {
 
   const fetchData = async () => {
     setIsLoading(true);
-    const url = `https://gremio-news.herokuapp.com/api/news2`
+    const url = `https://gremio-news.herokuapp.com/api/news`
     const res = await fetch(url)
     const data = await res.json()
     setNews(data)
