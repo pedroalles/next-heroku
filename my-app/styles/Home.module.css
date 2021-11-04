@@ -1,6 +1,6 @@
 .container {
   padding: 8px;
-  background-color: #161616;
+  /* background-color: #7c7878; */
 }
 
 .card {
@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #161616;
+  /* background-color: #161616; */
 }
 
 .loadinglogo {
