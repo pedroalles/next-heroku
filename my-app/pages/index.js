@@ -1,9 +1,7 @@
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 
-const isProd = process.NODE_ENV === 'production'
-console.log(process.NODE_ENV);
-console.log(process.env.NODE_ENV);
+const isProd = process.env.NODE_ENV === 'production'
 
 export default function Home() {
 
@@ -22,7 +20,7 @@ export default function Home() {
     if (isProd) {
       url = `https://gremio-news.herokuapp.com/api/news`
     } else {
-      url = `http://localhost:3000/api/news`
+      url = `http://localhost:3000/api/news2`
     }
 
     const res = await fetch(url)
@@ -43,13 +41,14 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <input
+      {news.length > 0 && <input
         className={styles.search}
         type="text"
         placeholder="Search"
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
-      />
+      />}
+
       {filteredData.length > 0 ? filteredData.map(el => (
         <div key={el.url} className={styles.card}>
           <a href={el.url} target="_blank" rel="noreferrer">
