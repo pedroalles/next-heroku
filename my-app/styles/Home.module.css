@@ -3,6 +3,16 @@
   /* background-color: #7c7878; */
 }
 
+.search {
+  margin-bottom: 8px;
+  padding: 2px 2px 2px 5px;
+}
+
+.noresults {
+  color: white;
+  text-align: center;
+}
+
 .card {
   border-radius: 6px;
   margin-bottom: 8px;
