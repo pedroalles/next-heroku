@@ -2,6 +2,7 @@ import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
 
 const isProd = process.NODE_ENV === 'production'
+console.log(process.NODE_ENV);
 
 export default function Home() {
 
@@ -18,9 +19,9 @@ export default function Home() {
 
     let url;
     if (isProd) {
-      url = `https://gremio-news.herokuapp.com/api/news2`
+      url = `https://gremio-news.herokuapp.com/api/news`
     } else {
-      url = `http://localhost:3000/api/news2`
+      url = `http://localhost:3000/api/news`
     }
 
     const res = await fetch(url)
