@@ -2,9 +2,12 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 export async function getTorcedoresNews() {
-    const site = 'TORCEDORES.COM'
-    const url = 'https://www.torcedores.com/equipes/gremio'
-    const response = await axios.get(url);
+
+    const site = 'TORCEDORES.COM';
+    const base_url = 'https://www.torcedores.com';
+    const search_url = base_url + '/equipes/gremio';
+
+    const response = await axios.get(search_url);
     const html = await response.data;
     const $ = cheerio.load(html);
 

@@ -1,7 +1,7 @@
-import { getUolNews } from '../../infra/getUolNews';
 import { getEspnNews } from '../../infra/getEspnNews';
 import { getPGNews } from '../../infra/getPGNews';
 import { getTorcedoresNews } from '../../infra/getTorcedoresNews';
+import { getUolNews } from '../../infra/getUolNews';
 
 export default async function handler(req, res) {
     const espn = await getEspnNews();
@@ -16,5 +16,4 @@ export default async function handler(req, res) {
         ...torcedores,
         ...uol,
     ])
-
 }
