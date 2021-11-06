@@ -16,7 +16,7 @@ export default function Home() {
   const fetchData = async () => {
     let url;
     if (isProd) {
-      url = `https://gremio-news.herokuapp.com/api/news2`
+      url = `https://gremio-news.herokuapp.com/api/news`
     } else {
       url = `http://localhost:3000/api/news2`
     }
