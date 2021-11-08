@@ -48,13 +48,16 @@ async function getPage() {
 }
 
 export async function getGeNews({ width, height } = { width: 800, height: 800 }) {
-  const page = await getPage();
-  const url = 'https://ge.globo.com/rs/futebol/times/gremio/';
-  await page.setViewport({ width, height });
-  await page.goto(url);
 
-  const result = await page.evaluate(() => {
-    const site = 'GLOBO ESPORTE'
+  const site = 'GLOBO ESPORTE'
+  const base_url = 'https://ge.globo.com';
+  const search_url = base_url + '/rs/futebol/times/gremio/';
+
+  const page = await getPage();
+  await page.setViewport({ width, height });
+  await page.goto(search_url);
+
+  const result = await page.evaluate((site) => {
     const posts = []
     document.querySelectorAll('div.feed-post-body-title.gui-color-primary.gui-color-hover > div > a')
       .forEach((post) => posts.push({
@@ -63,7 +66,7 @@ export async function getGeNews({ width, height } = { width: 800, height: 800 })
         url: post.getAttribute('href')
       }))
     return posts
-  })
+  }, site)
 
   await _browser.close()
   _page = null
